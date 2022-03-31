@@ -1,6 +1,7 @@
 Feature: Probar la busqueda en google
 
 Scenario: Busco algo en Google
-    Given navego a Google
-    When busco algo
-    Then Obtengo resultados
+    Given I am on the Google search page
+    When I enter a search criteria
+    And clic on the search button
+    Then the results match the criteria
