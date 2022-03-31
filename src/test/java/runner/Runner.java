@@ -7,6 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+    publish = true,
     features = "src/test/resources/features",
     glue = "steps"
 )
