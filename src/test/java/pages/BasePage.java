@@ -9,11 +9,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasePage {
     protected static WebDriver driver;
     private static WebDriverWait wait;
+    private static Actions action;
 
     static{
         System.setProperty("webdriver.chrome.driver", "/home/aragon/pasantia/selenium-curso/chromedriver/chromedriver");
@@ -60,5 +62,24 @@ public class BasePage {
         Select dropdown = new Select(Find(locator));
 
         dropdown.selectByVisibleText(valueSelect);
+    }
+
+    public void hoverOverElement(String locator) {
+        action.moveToElement(Find(locator));
+    }
+
+    public void doubleClick(String locator) {
+        action.doubleClick(Find(locator));
+    }
+
+    public void rightClick(String locator) {
+        action.contextClick(Find(locator));
+    }
+
+    public String getValueFromTable(String locator, int row,int column) {
+
+        String celda = locator+"/table/tbody/tr["+row+"]/td["+column+"]";
+
+        return Find(celda).getText();
     }
 }
