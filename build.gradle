@@ -5,7 +5,7 @@ plugins{
 group 'CursoSelenium'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 15
+sourceCompatibility = 8
 
 repositories {
     mavenCentral()
