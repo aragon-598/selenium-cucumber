@@ -26,7 +26,8 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         BasePage.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); /**Si no encuestra el elemento en ese tiempo, la ejecución termina */
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); /**Hace una espera entre cada acción */
     }
 
     public static void navigateTo(String url) {
@@ -81,5 +82,21 @@ public class BasePage {
         String celda = locator+"/table/tbody/tr["+row+"]/td["+column+"]";
 
         return Find(celda).getText();
+    }
+
+    public void switchToIFrame(int iFrameIndex) {
+        driver.switchTo().frame(iFrameIndex);
+    }
+
+    public void swithToParentFrame() {
+        driver.switchTo().parentFrame();
+    }
+
+    public void dismissAlert() {
+        driver.switchTo().alert().dismiss();
+    }
+
+    public String txtFromElement(String locator) {
+        return Find(locator).getText();
     }
 }
