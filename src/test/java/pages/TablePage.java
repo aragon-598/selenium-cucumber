@@ -2,7 +2,7 @@ package pages;
 
 public class TablePage extends BasePage {
 
-    private String locator = "//*[@id=\"root\"]/div/";
+    private String locator = "//body/div[@id='root']/div[1]/table[1]";
 
     public TablePage() {
         super(driver);
@@ -17,4 +17,7 @@ public class TablePage extends BasePage {
         return getValueFromTable(locator, row, column);
     }
     
+    public boolean cellStatus() {
+        return elementisDisplayed(locator);
+    }
 }

@@ -1,6 +1,7 @@
 package pages;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,7 @@ public class BasePage {
     private static Actions action;
 
     static{
-        System.setProperty("webdriver.chrome.driver", "/home/aragon/pasantia/selenium-curso/chromedriver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         driver = new ChromeDriver(chromeOptions);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -98,5 +99,14 @@ public class BasePage {
 
     public String txtFromElement(String locator) {
         return Find(locator).getText();
+    }
+
+    public boolean elementisDisplayed(String locator) {
+        return Find(locator).isDisplayed();
+    }
+
+    //https://andreidbr.github.io/JS30/06AjaxTypeAhead/index.html
+    public List<WebElement> allElements(String locator) {
+        return driver.findElements(By.className(locator));
     }
 }
