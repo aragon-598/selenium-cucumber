@@ -19,7 +19,7 @@ public class BasePage {
     private static Actions action;
 
     static{
-        System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/home/aragon/pasantia/selenium-curso/chromedriver/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         driver = new ChromeDriver(chromeOptions);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));

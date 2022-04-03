@@ -1,8 +1,10 @@
 package pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ListPage extends BasePage{
     private String searchField = "//body/form[1]/input[1]";
@@ -22,6 +24,14 @@ public class ListPage extends BasePage{
     }
 
     public List<String> getAllSearchResults(){
-        return null;
+
+        List<WebElement> lista = allElements(searchResults);
+        List<String> stringFromList = new ArrayList<String>();
+
+        for (WebElement e : lista) {
+            stringFromList.add(e.getText());
+        }
+
+        return stringFromList;
     }
 }
