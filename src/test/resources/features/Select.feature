@@ -5,7 +5,12 @@ Scenario: Pruebo diferentes acciones en el dropdown
     And Selecciono una opcion del dropdown
 
 @Test
-Scenario: Validar si un texto esta presenta en la lista
+Scenario Outline: Validar si un texto esta presenta en la lista
     Given Navego a la webpage
-    When Busco la lista
-    Then Encuentro el texto en la linea
+    When Busco <state> en la lista
+    Then Encuentro <city> en la lista
+
+    Examples:
+        | state        | city                     |
+        | Washington   | Seattle, Washington      |
+        | Los Angeles  | Los Angeles, California  |

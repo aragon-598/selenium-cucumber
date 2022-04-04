@@ -15,16 +15,16 @@ public class ListSteps {
         list.navigateToListPage();
     }
 
-    @When("^Busco la lista$")
-    public void findList() throws InterruptedException{
-        list.enterSearchCriteria();
+    @When("^Busco (.+) en la lista$")
+    public void findList(String state) throws InterruptedException{
+        list.enterSearchCriteria(state);
     }
 
-    @Then("^Encuentro el texto en la linea$")
-    public void findText() {
+    @Then("^Encuentro (.+) en la lista$")
+    public void findText(String city) {
         List<String> estados = list.getAllSearchResults();
 
-        boolean txtIsThere = estados.contains("Seattle, Washington");
+        boolean txtIsThere = estados.contains(city);
 
         if (txtIsThere) {
             System.out.println("El texto está en la lista. PASED");
