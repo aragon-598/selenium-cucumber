@@ -21,3 +21,7 @@ dependencies {
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
     testImplementation 'io.cucumber:cucumber-junit:7.2.3'
 }
+
+test{
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+}

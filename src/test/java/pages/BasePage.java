@@ -31,6 +31,10 @@ public class BasePage {
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); /**Hace una espera entre cada acción */
     }
 
+    public static void closeBrowser() {
+        driver.quit();
+    }
+
     public static void navigateTo(String url) {
         driver.get(url);
     }

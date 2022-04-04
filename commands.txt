@@ -1,0 +1,2 @@
+comando para ejecutar tags desde terminal
+    * gradle test -Dcucumber.options="--tags @Test"
